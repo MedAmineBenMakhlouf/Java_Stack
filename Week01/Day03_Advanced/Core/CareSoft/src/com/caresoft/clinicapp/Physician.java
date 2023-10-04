@@ -27,14 +27,14 @@ private ArrayList<String> patientNotes;
 	@Override
 	public boolean assignPin(int pin) {
 		// TODO Auto-generated method stub
-		if(pin!=4)
+		if(pin>=1000 && pin<=9999)
 		{			
-			return false;
+			setPin(pin);
+			return true;
 		}
 		else
 		{
-			setPin(pin);
-			return true;
+			return false;
 		}
 	}
 

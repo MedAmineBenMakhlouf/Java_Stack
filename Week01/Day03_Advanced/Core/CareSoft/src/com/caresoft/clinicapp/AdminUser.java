@@ -46,7 +46,7 @@ public class AdminUser extends User implements HIPAACompliantUser, HIPAAComplian
 	@Override
 	public boolean assignPin(int pin) {
 		// TODO Auto-generated method stub
-		if(pin<6)
+		if(pin<=99999)
 		{			
 			return false;
 		}
