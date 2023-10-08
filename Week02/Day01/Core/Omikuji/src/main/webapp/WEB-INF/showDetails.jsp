@@ -26,12 +26,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container row d-flex justify-content-center mt-4">
-		<div class="col-4 bg-primary">
-		In <c:out value="${number }"></c:out> years, you will live in <c:out value="${city }"></c:out>
-		with <c:out value="${person }"></c:out> as your roommate, <c:out value="${hobby }"></c:out>
-		for living.
-		The next you see a <c:out value="${living }"></c:out>, you will have good luck. Also <c:out value="${speach }"></c:out>
+	<div
+		class="container row d-flex justify-content-center align-items-center mt-4">
+		<div class="col-4">
+
+			<div class="bg-primary">
+				In
+				<c:out value="${number }"></c:out>
+				years, you will live in
+				<c:out value="${city }"></c:out>
+				with
+				<c:out value="${person }"></c:out>
+				as your roommate,
+				<c:out value="${hobby }"></c:out>
+				for living. The next you see a
+				<c:out value="${living }"></c:out>
+				, you will have good luck. Also
+				<c:out value="${speach }"></c:out>
+			</div>
+			<div class="text-center">
+				<a href="/omikuji">Go Back</a>
+			</div>
 		</div>
 	</div>
 </body>
