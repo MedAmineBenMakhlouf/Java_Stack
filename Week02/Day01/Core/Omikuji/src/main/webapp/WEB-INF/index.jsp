@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!-- for Bootstrap CSS -->
 
 <!DOCTYPE html>
@@ -30,6 +31,14 @@
 		<div class="row m-auto d-flex justify-content-center mt-5">
 			<div class="col-6 mt-5">
 				<form class="mt-5" action="/sendForm" method="POST">
+					<c:if test="${fn:length(error)>0}">
+						<p>
+							
+						</p>
+						<div class="alert alert-danger" role="alert">
+							<c:out value="${error }"></c:out>
+						</div>
+					</c:if>
 					<div class="form-group">
 						<label for="">Select a number from 2 to 25</label> <input
 							type="number" class="form-control" name="number">
