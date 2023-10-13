@@ -9,4 +9,5 @@ import com.logreg.models.User;
 public interface LogRegRepository extends CrudRepository<User, Long> {
 
 	Optional<User> findByEmail(String email);
+	
 }

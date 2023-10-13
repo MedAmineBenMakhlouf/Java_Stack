@@ -18,6 +18,10 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   
+   <div class="container">
+   <h2>Welcome, <c:out value="${loggedUser.userName }"></c:out> </h2>
+   <p>this is your dashboard nothing to see here</p>
+   <a href="/logout">Logout</a>
+   </div>
 </body>
 </html>

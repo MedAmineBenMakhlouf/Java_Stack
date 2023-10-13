@@ -27,12 +27,9 @@ public class LogRegService {
 		if (!newUser.getPassword().equals(newUser.getConfirm())) {
 			result.rejectValue("password", "registerError", "Password does't much");
 		}
-		if(result.hasErrors())
-		{
+		if (result.hasErrors()) {
 			return null;
-		}
-		else
-		{
+		} else {
 			String HashedPassword = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
 			newUser.setPassword(HashedPassword);
 			User saveduser = logregRepository.save(newUser);
@@ -47,8 +44,7 @@ public class LogRegService {
 			result.rejectValue("email", "loginError", "email is not found");
 		} else {
 			User user = optUser.get();
-			if (!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword()))
-			{
+			if (!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword())) {
 				result.rejectValue("password", "loginError", "invalid Password");
 			}
 			if (result.hasErrors()) {
@@ -58,5 +54,15 @@ public class LogRegService {
 			}
 		}
 		return null;
+	}
+
+	public User findUser(Long id) {
+
+		Optional<User> opt = logregRepository.findById(id);
+		if (opt.isPresent()) {
+			return opt.get();
+		} else {
+			return null;
+		}
 	}
 }

@@ -24,6 +24,7 @@ public class RogLegController {
 
 	@GetMapping("/")
 	public String LogReg(Model model) {
+		
 		model.addAttribute("register", new User());
 		model.addAttribute("login", new Login());
 		return "index.jsp";
@@ -43,7 +44,14 @@ public class RogLegController {
 	}
 
 	@GetMapping("/dashboard")
-	public String dashboard() {
+	public String dashboard(HttpSession session,Model model) {
+		if((Long)session.getAttribute("user_id") == null)
+		{
+		 return "redirect:/";
+		}
+		User loggedUser =  logregService.findUser((Long)session.getAttribute("user_id"));
+		model.addAttribute("loggedUser", loggedUser);
+		
 		return "dashboard.jsp";
 	}
 
@@ -58,6 +66,12 @@ public class RogLegController {
 			session.setAttribute("user_id", loogedUser.getId());
 			return "redirect:/dashboard";
 		}
+	}
+	@GetMapping("/logout")
+	public String logout(HttpSession session)
+	{
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
