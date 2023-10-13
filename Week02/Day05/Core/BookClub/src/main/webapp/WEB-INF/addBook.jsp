@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create Dojo</title>
+<title>Tacos</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
@@ -21,18 +21,29 @@
 <!-- change to match your file/naming structure -->
 </head>
 <body>
-	<div class="container mt-3 mb-5">
-	<h2 class="conoton">New Dojo</h2>
-	<a href="/logout">Logout</a>
-		<form:form action="/dojo" method="post" modelAttribute="dojo">
-			<p>
-				<form:label class="form-label" path="name">Name: </form:label>
-				<form:errors path="name" />
-				<form:input class="form-control" path="name" />
-			</p>
-			<input type="submit" value="Create" />
-		</form:form>
-		<a href="/ninja/create"></a>
-	</div>
+	<h1>Create Book 📰</h1>
+	<form:form action="/book/add" method="post" modelAttribute="book"
+		class="col-3">
+
+		<p>
+			<form:label path="title" class="form-label">Title:</form:label>
+			<form:errors path="title" />
+			<form:input class="form-control" path="title" />
+		</p>
+
+		<p>
+			<form:label path="author">Author:</form:label>
+			<form:errors path="author" />
+			<form:input type="text" path="author" class="form-control" />
+		</p>
+		<p>
+			<form:label path="thoughts">My thoughts:</form:label>
+			<form:errors path="thoughts" />
+			<form:textarea path="thoughts" class="form-control" />
+		</p>
+
+		<button class="btn btn-success">Submit</button>
+
+	</form:form>
 </body>
 </html>

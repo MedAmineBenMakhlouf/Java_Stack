@@ -59,7 +59,7 @@ public class TravelController {
 		return "edit.jsp";
 	}
 	
-	@PutMapping("/expense/{id}/edit")
+	@PutMapping("/travels/{id}")
 	public String update(@Valid @ModelAttribute("travel") Travel travel, BindingResult result)
 	{
 		if(result.hasErrors())

@@ -22,34 +22,49 @@
 </head>
 <body>
 	<div class="container">
-	<div class="d-flex justify-content-between">
-	<h1>Edit Expense</h1>
-	<a href="/">Go Back</a>
+		<div class="row">
+			<div class="col-12 d-flex justify-content-between">
+				<h2>
+					Welcome,
+					<c:out value="${loggedUser.userName }"></c:out>
+				</h2>
+				<a href="/logout">Logout</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 d-flex justify-content-between">
+				<p>this is your dashboard nothing to see here</p>
+				<a href="/book/add">+ Add To my Shelf</a>
+			</div>
+		</div>
+		<div class="row">
+		<table class="table table-bordered">
+		<thead>
+		<tr>
+		<th>Title</th>
+		<th>Author Name</th>
+		<th>Posted By</th>
+		</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${books }" var="book">
+		<tr>
+		<td>
+		<a href="/book/${book.id }/show"><c:out value="${book.title }"></c:out></a>
+		</td>
+		<td>
+		<c:out value="${book.author }"></c:out>
+		</td>
+		<td>
+		<c:out value="${book.user.userName }"></c:out>
+		</td>
+		</tr>
+		</c:forEach>
+		</tbody>
+		</table>
+		</div>
+
 	</div>
-		<form:form action="/travels/${travel.id }" method="post" modelAttribute="travel">
-		<input type="hidden" name="_method" value="put">
-			<p>
-				<form:label path="expenseName">Title</form:label>
-				<form:errors path="expenseName" />
-				<form:input path="expenseName" />
-			</p>
-			<p>
-				<form:label path="vendor">Vendor</form:label>
-				<form:errors path="vendor" />
-				<form:textarea path="vendor" />
-			</p>
-			<p>
-				<form:label path="description">Description</form:label>
-				<form:errors path="description" />
-				<form:input path="description" />
-			</p>
-			<p>
-				<form:label path="amount">Amount</form:label>
-				<form:errors path="amount" />
-				<form:input type="number" path="amount" />
-			</p>
-			<input type="submit" value="Submit" />
-		</form:form>
-	</div>
+
 </body>
 </html>

@@ -18,7 +18,7 @@ public class DojoController {
 
 	@Autowired
 	private DojoService dojoService;
-	@GetMapping("/")
+	@GetMapping("/dojo")
 	public String createDojo(@ModelAttribute("dojo") Dojo dojo)
 	{
 		return "createDojo.jsp";

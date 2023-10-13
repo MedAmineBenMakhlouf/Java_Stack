@@ -23,32 +23,29 @@
 <body>
 	<div class="container">
 	<div class="d-flex justify-content-between">
-	<h1>Edit Expense</h1>
+	<h1>Edit Book</h1>
 	<a href="/">Go Back</a>
 	</div>
-		<form:form action="/travels/${travel.id }" method="post" modelAttribute="travel">
+		<form:form action="/book/${book.id }/edit" method="post" modelAttribute="book">
 		<input type="hidden" name="_method" value="put">
 			<p>
-				<form:label path="expenseName">Title</form:label>
-				<form:errors path="expenseName" />
-				<form:input path="expenseName" />
-			</p>
-			<p>
-				<form:label path="vendor">Vendor</form:label>
-				<form:errors path="vendor" />
-				<form:textarea path="vendor" />
-			</p>
-			<p>
-				<form:label path="description">Description</form:label>
-				<form:errors path="description" />
-				<form:input path="description" />
-			</p>
-			<p>
-				<form:label path="amount">Amount</form:label>
-				<form:errors path="amount" />
-				<form:input type="number" path="amount" />
-			</p>
-			<input type="submit" value="Submit" />
+			<form:label path="title" class="form-label">Title:</form:label>
+			<form:errors path="title" />
+			<form:input class="form-control" path="title" />
+		</p>
+
+		<p>
+			<form:label path="author">Author:</form:label>
+			<form:errors path="author" />
+			<form:input type="text" path="author" class="form-control" />
+		</p>
+		<p>
+			<form:label path="thoughts">My thoughts:</form:label>
+			<form:errors path="thoughts" />
+			<form:textarea path="thoughts" class="form-control" />
+		</p>
+
+		<button class="btn btn-success">Submit</button>
 		</form:form>
 	</div>
 </body>
